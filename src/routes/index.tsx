@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import heroModels from "@/assets/hero-models.jpg";
 import heroImg from "@/assets/hero.jpg";
 import ladiesImg from "@/assets/ladies.jpg";
@@ -30,28 +29,6 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { WhatsAppFloatingButton } from "@/components/WhatsAppFloatingButton";
 import { SgLuxuryDesignSuite } from "@/components/SgLuxuryDesignSuite";
 
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Sanghavi NX | Complete Family Showroom in Talegaon Dabhade" },
-      {
-        name: "description",
-        content:
-          "Sanghavi NX is a complete family clothing store in Talegaon Dabhade offering sarees, ladies wear, men's wear, and kids wear.",
-      },
-      {
-        property: "og:title",
-        content: "Sanghavi NX | Complete Family Showroom",
-      },
-      {
-        property: "og:description",
-        content:
-          "Sarees, ladies wear, men's wear and kids wear in Talegaon Dabhade, Pune.",
-      },
-    ],
-  }),
-  component: Index,
-});
 
 const newArrivals = [
   { img: ladiesImg, title: "Designer Sarees", tag: "Premium Collection" },
@@ -81,7 +58,7 @@ const familyPicks = [
   { img: ladiesImg, title: "Daily Essentials", tag: "Everyday Comfort" },
 ];
 
-function Index() {
+export default function Index() {
   const isMobile = useIsMobile();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 

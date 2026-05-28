@@ -1,52 +1,14 @@
-// @lovable.dev/vite-tanstack-config already includes the following — do NOT add them manually
-// or the app will break with duplicate plugins:
-//   - tanstackStart, viteReact, tailwindcss, tsConfigPaths, nitro (build-only using cloudflare as a default target),
-//     componentTagger (dev-only), VITE_* env injection, @ path alias, React/TanStack dedupe,
-//     error logger plugins, and sandbox detection (port/host/strictPort).
-// You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
-import { defineConfig } from "@lovable.dev/vite-tanstack-config";
-
-// Detect cloud deployment environment variables
-const isNetlify =
-  !!process.env.NETLIFY || process.env.NITRO_PRESET === "netlify";
-const isVercel =
-  !!process.env.VERCEL ||
-  process.env.NITRO_PRESET === "vercel" ||
-  process.env.NITRO_PRESET === "vercel-server";
-
-// Determine the target Nitro preset for server side compiling
-const preset =
-  process.env.NITRO_PRESET ||
-  (isNetlify ? "netlify" : isVercel ? "vercel" : undefined);
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tsconfigPaths from "vite-tsconfig-paths";
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  tanstackStart: {
-    // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
-    // nitro/vite builds from this
-    server: { entry: "server" },
+  plugins: [react(), tsconfigPaths(), tailwindcss()],
+  server: {
+    host: "0.0.0.0",
+    port: 3000,
+    strictPort: true,
   },
-  // Ensure Nitro is forced ON and compiled specifically with the target platform's preset
-  // when deploying self-hosted on Netlify, Vercel, or compiling custom SSR builds.
-  nitro: preset
-    ? {
-        preset,
-        ...(preset === "netlify"
-          ? {
-              output: {
-                dir: ".output",
-                serverDir: ".output/server",
-                publicDir: ".output/public",
-              },
-            }
-          : preset.startsWith("vercel")
-            ? {
-                output: {
-                  dir: ".vercel/output",
-                  serverDir: ".vercel/output/functions/index.func",
-                  publicDir: ".vercel/output/static",
-                },
-              }
-            : {}),
-      }
-    : undefined,
 });
+
