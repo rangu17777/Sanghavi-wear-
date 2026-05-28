@@ -1,9 +1,9 @@
-import heroModels from "@/assets/hero-models.jpg";
-import heroImg from "@/assets/hero.jpg";
-import ladiesImg from "@/assets/ladies.jpg";
-import mensImg from "@/assets/mens.jpg";
-import kidsImg from "@/assets/kids.jpg";
-import bridalImg from "@/assets/bridal.jpg";
+import heroModels from "../assets/hero-models.jpg";
+import heroImg from "../assets/hero.jpg";
+import ladiesImg from "../assets/ladies.jpg";
+import mensImg from "../assets/mens.jpg";
+import kidsImg from "../assets/kids.jpg";
+import bridalImg from "../assets/bridal.jpg";
 import {
   MapPin,
   Phone,
