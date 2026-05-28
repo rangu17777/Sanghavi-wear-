@@ -1,0 +1,6 @@
+{
+  "name": "Sanghavi NX",
+  "description": "A comprehensive, high-end family clothing showroom in Talegaon Dabhade, specializing in luxury sarees, bridal wear, men's ethnic fashion, and children's collections.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
