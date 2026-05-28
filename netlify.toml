@@ -1,20 +1,20 @@
-# Netlify Configuration for TanStack Start (Nitro)
-# This file teaches Netlify how to compile and host your premium SSR / serverless web applet.
+# Netlify Configuration for React/Vite Single Page Application
+# This file teaches Netlify how to compile and host your premium React web applet.
 
 [build]
   # Commands to install dependencies and run compiling
   command = "npm run build"
   
-  # Nitro outputs built production assets and prerendered HTML directly to `.output/public/`
-  publish = ".output/public"
+  # Vite outputs built production assets and compiled HTML directly to `dist`
+  publish = "dist"
 
 [build.environment]
-  # Force Nitro to compile serverless functions specifically suited for Netlify's hosting layer.
-  # This overrides any default Cloudflare target preset defined inside the bundle config.
-  NITRO_PRESET = "netlify"
-  
   # Use a modern node runtime speed for compatibility
   NODE_VERSION = "20"
 
-# Routes are handled automatically by Nitro's output redirects and functions routing.
-# No custom manual redirects are needed because nitro will generate `.output/public/_redirects` on compiling.
+# Netlify SPA redirect rule so routing falls back to index.html if needed
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+

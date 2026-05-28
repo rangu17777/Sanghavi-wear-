@@ -29,7 +29,6 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { WhatsAppFloatingButton } from "@/components/WhatsAppFloatingButton";
 import { SgLuxuryDesignSuite } from "@/components/SgLuxuryDesignSuite";
 
-
 const newArrivals = [
   { img: ladiesImg, title: "Designer Sarees", tag: "Premium Collection" },
   { img: bridalImg, title: "Bridal Lehengas", tag: "Wedding Edit" },
