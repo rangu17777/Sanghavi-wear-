@@ -1,9 +1,13 @@
-import heroModels from "../assets/hero-models.jpg";
-import heroImg from "../assets/hero.jpg";
-import ladiesImg from "../assets/ladies.jpg";
-import mensImg from "../assets/mens.jpg";
-import kidsImg from "../assets/kids.jpg";
-import bridalImg from "../assets/bridal.jpg";
+const heroModels = "/assets/image.png";
+const heroImg = "/assets/image.png";
+const ladiesImg =
+  "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80";
+const mensImg =
+  "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=800&q=80";
+const kidsImg =
+  "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800&q=80";
+const bridalImg =
+  "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=800&q=80";
 import {
   MapPin,
   Phone,
