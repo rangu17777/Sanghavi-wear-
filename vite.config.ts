@@ -30,6 +30,23 @@ export default defineConfig({
   nitro: preset
     ? {
         preset,
+        ...(preset === "netlify"
+          ? {
+              output: {
+                dir: ".output",
+                serverDir: ".output/server",
+                publicDir: ".output/public",
+              },
+            }
+          : preset.startsWith("vercel")
+            ? {
+                output: {
+                  dir: ".vercel/output",
+                  serverDir: ".vercel/output/functions/index.func",
+                  publicDir: ".vercel/output/static",
+                },
+              }
+            : {}),
       }
     : undefined,
 });
